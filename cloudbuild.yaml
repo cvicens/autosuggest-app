@@ -4,9 +4,9 @@ steps:
       'build', 
       '--cache-from',
       'eu.gcr.io/$PROJECT_ID/autosuggest-app:latest',
-      '-f' , './autosuggest-app/Dockerfile', 
+      '-f' , './Dockerfile', 
       '--tag=eu.gcr.io/$PROJECT_ID/autosuggest-app:$TAG_NAME', 
-      './autosuggest-app' 
+      '.' 
     ]
 
   - name: 'gcr.io/cloud-builders/docker'
