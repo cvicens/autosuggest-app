@@ -1,6 +1,13 @@
 <div class="form-group">
   <label for="typeahead-http">Search:</label>
-  <input id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed" [(ngModel)]="model" [ngbTypeahead]="autocomplete" placeholder="Wikipedia search" />
+  <input id="typeahead-http" 
+    type="text" 
+    class="form-control" 
+    [class.is-invalid]="searchFailed" 
+    [(ngModel)]="model" 
+    [ngbTypeahead]="autocomplete" 
+    placeholder="Product search"
+    (selectItem)="onSelectedItem($event)" />
   <span *ngIf="searching">searching...</span>
   <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
 </div>
