@@ -29,7 +29,12 @@ steps:
               containers:
                 - name: autosuggest-app
                   image: eu.gcr.io/$PROJECT_ID/autosuggest-app:$TAG_NAME
-#      '{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"autosuggest-app\",\"image\":\"eu.gcr.io/$PROJECT_ID/autosuggest-app:$TAG_NAME\"}]}}}}'
+    env:
+    - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-d'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=autosuggest-cluster-eu'
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['container', 'clusters', 'get-credentials', '--project=$PROJECT_ID', '--zone=$CLOUDSDK_COMPUTE_ZONE', '$CLOUDSDK_CONTAINER_CLUSTER']
     env:
     - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-d'
     - 'CLOUDSDK_CONTAINER_CLUSTER=autosuggest-cluster-eu'
@@ -51,7 +56,6 @@ steps:
               containers:
                 - name: autosuggest-app
                   image: eu.gcr.io/$PROJECT_ID/autosuggest-app:$TAG_NAME
-#      '{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"autosuggest-app\",\"image\":\"eu.gcr.io/$PROJECT_ID/autosuggest-app:$TAG_NAME\"}]}}}}'
     env:
     - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
     - 'CLOUDSDK_CONTAINER_CLUSTER=autosuggest-cluster-us'
