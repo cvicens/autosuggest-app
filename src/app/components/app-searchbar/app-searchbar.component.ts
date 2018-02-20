@@ -16,11 +16,9 @@ import 'rxjs/add/operator/merge';
 
 @Injectable()
 export class AutocompleteService {
-  AUTOSUGGEST_URL = APP_SETTINGS.autosuggestServiceURl;
+  autosuggestServiceURl = APP_SETTINGS.autosuggestServiceURl;
 
   constructor(private http: HttpClient) {
-    // const AUTOSUGGEST_URL = 'http://localhost:8080/cache/products';
-    console.log('AUTOSUGGEST_URL', this.AUTOSUGGEST_URL);
   }
 
   // Returns an Observable...
@@ -30,7 +28,7 @@ export class AutocompleteService {
     }
 
     return this.http
-      .get(this.AUTOSUGGEST_URL + '/' + term);
+      .get(this.autosuggestServiceURl + '/' + term);
   }
 }
 
