@@ -5,6 +5,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+import { AppLoadModule } from './modules/app-load.module';
+
 import { AppComponent } from './app.component';
 import { AppNavbarComponent } from './components/app-navbar/app-navbar.component';
 import { AppSearchbarComponent } from './components/app-searchbar/app-searchbar.component';
@@ -18,6 +20,7 @@ import { AppSearchbarComponent } from './components/app-searchbar/app-searchbar.
   ],
   imports: [
     BrowserModule,
+    AppLoadModule,
     NgbModule.forRoot(),
     FormsModule,
     HttpClientModule

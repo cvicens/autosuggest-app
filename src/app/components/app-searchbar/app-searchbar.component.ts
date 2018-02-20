@@ -1,5 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 
+import { APP_SETTINGS } from '../../settings';
+
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {of} from 'rxjs/observable/of';
@@ -12,20 +14,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/merge';
 
-// const AUTOCOMPLETE_URL = 'http://35.189.246.239:8080/cache/products';
-const AUTOCOMPLETE_URL = 'http://localhost:8080/cache/products';
-const WIKI_URL = 'https://en.wikipedia.org/w/api.php';
-const PARAMS = new HttpParams({
-  fromObject: {
-    action: 'opensearch',
-    format: 'json',
-    origin: '*'
-  }
-});
-
 @Injectable()
 export class AutocompleteService {
-  constructor(private http: HttpClient) {}
+  AUTOSUGGEST_URL = APP_SETTINGS.autosuggestServiceURl;
+
+  constructor(private http: HttpClient) {
+    // const AUTOSUGGEST_URL = 'http://localhost:8080/cache/products';
+    console.log('AUTOSUGGEST_URL', this.AUTOSUGGEST_URL);
+  }
 
   // Returns an Observable...
   search(term: string) {
@@ -34,7 +30,7 @@ export class AutocompleteService {
     }
 
     return this.http
-      .get(AUTOCOMPLETE_URL + '/' + term);
+      .get(this.AUTOSUGGEST_URL + '/' + term);
   }
 }
 
