@@ -1,6 +1,9 @@
 # [START all]
 FROM node:6.12.3-alpine
 
+# Install ng
+RUN npm install -g @angular/cli@latest
+
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
