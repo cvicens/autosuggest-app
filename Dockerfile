@@ -2,7 +2,8 @@
 FROM node:6.12.3-alpine
 
 # GIT tag to be used in the code to show the tag deployed
-ARG GIT_TAG=NO_TAG
+ARG BUILDTIME_GIT_TAG=NO_TAG
+ENV GIT_TAG=$BUILDTIME_GIT_TAG
 
 # Install ng
 RUN npm install -g @angular/cli@latest
