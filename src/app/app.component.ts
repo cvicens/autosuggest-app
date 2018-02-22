@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { APP_SETTINGS } from './settings';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  gitTag: string = APP_SETTINGS.gitTag;
 }

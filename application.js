@@ -6,6 +6,8 @@ app.use(corser.create());
 
 app.use(express.static(__dirname + '/dist'));
 
+app.use('/settings', require('./lib/settings.js')());
+
 app.options("*", function (req, res) {
   // CORS
   res.writeHead(204);

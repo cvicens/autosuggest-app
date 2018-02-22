@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { AppNavbarComponent } from './components/app-navbar/app-navbar.component';
 import { AppSearchbarComponent } from './components/app-searchbar/app-searchbar.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

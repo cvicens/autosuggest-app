@@ -24,6 +24,27 @@ export class AppLoadService {
   getSettings(): Promise<any> {
     console.log('getSettings:: before http.get call');
 
+    const promise = this.httpClient.get('/settings')
+      .toPromise()
+      .then(settings => {
+        console.log('Settings from /settings: ', settings);
+
+        APP_SETTINGS.gitTag = settings['tag'];
+
+        console.log('APP_SETTINGS: ', APP_SETTINGS);
+
+        return settings;
+      })
+      .catch((reason) => {
+        console.error(reason);
+      });
+
+    return promise;
+  }
+
+  getIpInfo(): Promise<any> {
+    console.log('getSettings:: before http.get call');
+
     const promise = this.httpClient.get('http://ipinfo.io/geo')
       .toPromise()
       .then(settings => {

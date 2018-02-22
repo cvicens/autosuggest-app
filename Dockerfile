@@ -1,6 +1,9 @@
 # [START all]
 FROM node:6.12.3-alpine
 
+# GIT tag to be used in the code to show the tag deployed
+ARG GIT_TAG=NO_TAG
+
 # Install ng
 RUN npm install -g @angular/cli@latest
 
