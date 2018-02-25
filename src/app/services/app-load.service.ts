@@ -53,12 +53,12 @@ export class AppLoadService {
         APP_SETTINGS.country = settings['country'];
         if (APP_SETTINGS.country === 'ES' || APP_SETTINGS.country === 'FR') {
             APP_SETTINGS.area = 'eu';
-            APP_SETTINGS.autosuggestServiceURl = 'http://35.189.246.239:8080/' + APP_SETTINGS.autosuggestServiceURi;
-            APP_SETTINGS.catalogServiceUrl = 'http://35.195.141.41:8080/' + APP_SETTINGS.catalogServiceUri;
+            APP_SETTINGS.autosuggestServiceURl = 'http://eu.cache.apps.viralmar.es:8080/' + APP_SETTINGS.autosuggestServiceURi;
+            APP_SETTINGS.catalogServiceUrl = 'http://eu.catalog.apps.viralmar.es:8080/' + APP_SETTINGS.catalogServiceUri;
         } else {
             APP_SETTINGS.area = 'us';
-            APP_SETTINGS.autosuggestServiceURl = 'http://35.192.170.40:8080/' + APP_SETTINGS.autosuggestServiceURi;
-            APP_SETTINGS.catalogServiceUrl = 'http://35.192.170.40:8080/' + APP_SETTINGS.catalogServiceUri;
+            APP_SETTINGS.autosuggestServiceURl = 'http://us.cache.apps.viralmar.es:8080/' + APP_SETTINGS.autosuggestServiceURi;
+            APP_SETTINGS.catalogServiceUrl = 'http://us.catalog.apps.viralmar.es:8080/' + APP_SETTINGS.catalogServiceUri;
         }
 
         console.log('APP_SETTINGS: ', APP_SETTINGS);
