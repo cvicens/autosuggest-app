@@ -16,8 +16,6 @@ import 'rxjs/add/operator/merge';
 
 @Injectable()
 export class AutocompleteService {
-  autosuggestServiceURl = APP_SETTINGS.autosuggestServiceURl;
-
   constructor(private http: HttpClient) {
   }
 
@@ -28,7 +26,7 @@ export class AutocompleteService {
     }
 
     return this.http
-      .get(this.autosuggestServiceURl + '/' + term);
+      .get(APP_SETTINGS.autosuggestServiceURl + '/' + term);
   }
 }
 
